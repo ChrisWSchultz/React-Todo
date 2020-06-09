@@ -16,21 +16,21 @@ class TodoForm extends React.Component {
 
     handleChanges = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
         this.setState({[event.target.name]: event.target.value});
     };
 
     render() {
         return(
             <div>
-                <form onSubmit={ this.addTask }>
+                <form>
                     <input
                         type="text"
                         value={ this.state.task }
                         name="task"
                         onChange={ this.handleChanges }
                     />
-                    <button>Add Task</button>
+                    <button onClick={ this.addTask }>Add Task</button>
+                    <button onClick={ this.props.removeCompleted }>Remove Completed</button>
                 </form>
             </div>
         );
